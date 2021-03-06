@@ -41,4 +41,11 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','is_admin']], function (){
     Route::any('/role/edit','RoleController@edit')->name('role/edit');
     Route::any('/role/{id}/update','RoleController@update')->name('role/update');
     Route::any('/role/delete','RoleController@delete')->name('role/delete');
+//    For Permissions
 });
+Route::any('/permission/manage','PermissionController@index')->name('permission/manage');
+Route::any('/permission/add','PermissionController@add')->name('permission/add');
+Route::any('/permission/create','PermissionController@create')->name('permission/create');
+Route::any('/permission/edit','PermissionController@edit')->name('permission/edit');
+Route::any('/permission/{id}/update','PermissionController@update')->name('permission/update');
+Route::any('/permission/delete','PermissionController@delete')->name('permission/delete');
