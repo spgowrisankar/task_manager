@@ -43,7 +43,7 @@ class RoleController extends Controller
         $role = Role::find($id);
         $role->name = $request->get('name');
         $role->short_code = $request->get('short_code');
-        $role->is_active = 'active';
+        $role->is_active = $request->get('status');
         $role->save();
 
         return redirect('admin/role/manage')->with('success','Role Updated');

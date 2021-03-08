@@ -8,7 +8,6 @@
                     <div class="card-header">{{ __('Admin Panel') }}</div>
                     <div class="card-body">
                         <h4>{{ __('Welcome Admin') }}</h4>
-
                     </div>
                 </div>
             </div>

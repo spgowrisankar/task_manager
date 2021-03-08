@@ -6,42 +6,40 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">
-                        {{ __('Edit Role') }}
+                        {{ __('Edit Roles') }}
                     </div>
                     <div class="card-body">
-                        <form action="{{route('role/update', $role['id'])}}">
-                            @method('PATCH')
+                        {!! Form::open(['route' => ['role/update',['id' => $role->id]],'method' => 'patch']) !!}
                             @csrf()
                             <div class="form-inline mb-4">
-                                <label>Role Name</label>
+                                {!! Form::label('Role Name') !!}
                                 <div class="col-lg-4">
-                                    <input type="text" name="name" class="form-control" value="{{$role->name}}">
+                                    {!! Form::text('name', ($role)? $role->name:'', ['class'=>'form-control', 'required'=>'required']) !!}
                                 </div>
                             </div>
                             <div class="form-inline mb-4">
-                                <label>Short Code</label>
+                                {!! Form::label('Short Code') !!}
                                 <div class="col-lg-4">
-                                    <input type="text" name="short_code" class="form-control" value="{{$role->short_code}}">
+                                    {!! Form::text('short_code', ($role)? $role->short_code:'', ['class'=>'form-control', 'required'=>'required']) !!}
                                 </div>
                             </div>
                             <div class="form-inline mb-4">
-                                <label>Role Name</label>
+                                {!! Form::label('Status') !!}
                                 <div class="col-lg-4">
-                                    <select class="form-control" name="status">
-                                        <option value="active">Active</option>
-                                        <option value="inactive">Inactive</option>
-                                    </select>
+                                    {!! Form::select("status",['active' => 'Active', 'in_active' => 'In-active'],($role)?$role->is_active:'',
+                                   ['class'=>'form-control','placeholder' => 'Select a Status...']
+                                    ); !!}
                                 </div>
                             </div>
                             <div class="form-inline">
                                 <div class="col-lg-4">
-                                    <input type="submit" class="btn btn-success" value="Save">
+                                    {!! Form::submit('Submit',['class' => 'btn btn-success']); !!}
                                 </div>
                                 <div class="btn btn-md btn-success">
                                     <a href="manage" style="color: #ffffff">Goto Manage Role</a>
                                 </div>
                             </div>
-                        </form>
+                        {!! Form::close() !!}
                     </div>
                 </div>
             </div>
