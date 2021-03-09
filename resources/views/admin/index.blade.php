@@ -4,12 +4,10 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">{{ __('Admin Panel') }}</div>
-                    <div class="card-body">
-                        <h4>{{ __('Welcome Admin') }}</h4>
-                    </div>
-                </div>
+                <h2 class="float-left">
+                    {{ __('Admin Page!!') }}
+                </h2>
+                <div class="card-body"></div>
             </div>
         </div>
     </div>

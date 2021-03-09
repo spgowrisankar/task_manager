@@ -30,10 +30,10 @@ class RoleController extends Controller
         }
     }
     public function edit(Request $request){
-            $id = $request->get('id');
-            $role = Role::find($id);
-            return view('roles.edit',compact('role'));
-        }
+        $id = $request->get('id');
+        $role = Role::find($id);
+        return view('roles.edit',compact('role'));
+    }
 
     public function update(Request $request, $id) {
         $request->validate([
