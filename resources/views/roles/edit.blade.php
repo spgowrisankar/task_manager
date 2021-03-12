@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('template.main')
 
 @section('content')
     <div class="container">
@@ -6,7 +6,7 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">
-                        {{ __('Edit Roles') }}
+                        <h4>Edit Roles</h4>
                     </div>
                     <div class="card-body">
                         {!! Form::open(['route' => ['role/update',['id' => $role->id]],'method' => 'patch']) !!}

@@ -37,7 +37,7 @@ class LoginController extends Controller
             // Check user role
             switch ($role->short_code) {
                 case 'admin':
-                    return 'admin/dashboard';
+                    return 'admin/user/manage';
                     break;
                 case 'pm':
                     return 'projects/manage';

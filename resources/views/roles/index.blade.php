@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('template.main')
 
 @section('content')
     <div class="container">
@@ -8,7 +8,7 @@
                     {{ __('Manage Role') }}
                 </h2>
                 <div class="card-body float-right">
-                    <a href="add" class="btn btn-primary">Add New Role</a>
+                    <a href="create" class="btn btn-primary">Add New Role</a>
                 </div>
                 <table class="table table-bordered">
                     <tr>
@@ -22,6 +22,7 @@
                             <td>{{ $role['id'] }}</td>
                             <td>{{ $role['name'] }}</td>
                             <td>
+{{--                                <a class="btn btn-sm btn-primary" href="{{route('role/show', ['id'=>$role->id])}}">View</a>--}}
                                 <a class="btn btn-sm btn-primary" href="{{route('role/edit', ['id'=>$role->id])}}">Edit</a>
                                 <a class="btn btn-sm btn-danger" href="{{route('role/delete', ['id'=>$role->id])}}">Delete</a>
                             </td>

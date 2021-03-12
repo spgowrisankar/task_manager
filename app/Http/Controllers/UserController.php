@@ -34,31 +34,32 @@ class UserController extends Controller
         }
     }
     public function edit(Request $request){
-        $id = $request->get('id');
-        $users = User::find($id);
+        $uuid = $request->get('uuid');
+        $users = User::where('uuid', $uuid)->first();
         $roles = $this->listRole();
         $param = ['users', 'roles'];
 
         return view('users.edit',compact($param));
     }
-    public function update(Request $request, $id) {
+    public function update(Request $request, $uuid) {
         $request->validate([
             'name' =>'required',
             'roles'=> 'required'
         ]);
-        $users = User::find($id);
+
+        $users = User::where('uuid', $uuid)->first();
         $users->name = $request->get('name');
         $users->roles = $request->get('roles');
         $users->save();
 
-        return redirect('user/manage')->with('success','User has been Updated successfully!');
+        return redirect('admin/user/manage')->with('success','User has been Updated successfully!');
     }
 
     public function delete(Request $request) {
-        if ($request->get('id')) {
-            $id = $request->get('id');
-            if (User::where('id',$id)->delete()){
-                return Redirect::to('user/manage')->with(['success'=>'User deleted Successfully']);
+        if ($request->get('uuid')) {
+            $uuid = $request->get('uuid');
+            if (User::where('uuid',$uuid)->delete()){
+                return Redirect::to('admin/user/manage')->with(['success'=>'User deleted Successfully']);
             }
 
         }

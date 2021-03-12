@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('template.main')
 
 @section('content')
     <div class="container">
@@ -9,7 +9,7 @@
                         {{ __('Edit Users') }}
                     </div>
                     <div class="card-body">
-                        {!! Form::open(['route' => ['user/update',['id' => $users['id']]],'method' => 'patch']) !!}
+                        {!! Form::open(['route' => ['user/update',['uuid' => $users['uuid']]],'method' => 'patch']) !!}
                         @csrf()
                         <div class="form-inline mb-4">
                             {!! Form::label('Name') !!}

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('template.main')
 
 @section('content')
     <div class="container">
@@ -6,7 +6,7 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">
-                        {{ __('Add New User') }}
+                        <h4> Add New User</h4>
                     </div>
                     <div class="card-body">
                         @include('components.alert')

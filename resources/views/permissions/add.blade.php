@@ -1,11 +1,11 @@
-@extends('layouts.app')
+@extends('template.main')
 
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{ __('Add Permission') }}</div>
+                    <div class="card-header"><h4>Add Permission</h4></div>
                     <div class="card-body">
                         @include('components.alert')
                         {!! Form::open(['route' => 'permission/create','method' => 'post']) !!}
@@ -17,17 +17,8 @@
                             </div>
                         </div>
                         <div class="form-inline mb-4">
-                            {!! Form::label('Short Code') !!}
                             <div class="col-lg-4">
-                                {!! Form::text('short_code','',['class'=>'form-control','required'=>'required']); !!}
-                            </div>
-                        </div>
-                        <div class="form-inline mb-4">
-                            {!! Form::label('Status') !!}
-                            <div class="col-lg-4">
-                                {!! Form::select("status",['active' => 'Active', 'in_active' => 'In-active'], null,
-                                   ['class'=>'form-control','placeholder' => 'Select a Status...','required'=>'required']
-                                    ); !!}
+                                {!! Form::hidden('short_code','',['class'=>'form-control','required'=>'required']); !!}
                             </div>
                         </div>
                         <div class="form-inline">

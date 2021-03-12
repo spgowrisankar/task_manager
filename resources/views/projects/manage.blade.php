@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('template.main')
 
 @section('content')
     <div class="container">
@@ -7,7 +7,7 @@
                 <div class="card">
                     <div class="card-header">{{ __('Manage Projects') }}</div>
                     <div class="card-body">
-                        <h4>{{ __('Welcome Project Manager') }}</h4>
+                        <h4>{{ __('Welcome to Project Manager') }}</h4>
                     </div>
                 </div>
             </div>

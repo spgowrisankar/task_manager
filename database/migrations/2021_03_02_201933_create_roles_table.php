@@ -17,7 +17,6 @@ class CreateRolesTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('short_code');
-            $table->string('is_active')->default('active');
             $table->timestamps();
         });
     }

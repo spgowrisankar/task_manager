@@ -17,6 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/dashboard', function () {
+    return view('template.layouts.master');
+});
 
 Auth::routes();
 
@@ -39,13 +42,13 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','is_admin']], function (){
     Route::any('/user/add','UserController@add')->name('user/add');
     Route::any('/user/create','UserController@create')->name('user/create');
     Route::any('/user/edit','UserController@edit')->name('user/edit');
-    Route::any('/user/{id}/update','UserController@update')->name('user/update');
+    Route::any('/user/{uuid}/update','UserController@update')->name('user/update');
     Route::any('/user/delete','UserController@delete')->name('user/delete');
 
     //For Roles
     Route::any('/role/manage','RoleController@index')->name('role/manage');
-    Route::any('/role/add','RoleController@add')->name('role/add');
     Route::any('/role/create','RoleController@create')->name('role/create');
+    Route::any('/role/store','RoleController@store')->name('role/store');
     Route::any('/role/edit','RoleController@edit')->name('role/edit');
     Route::any('/role/{id}/update','RoleController@update')->name('role/update');
     Route::any('/role/delete','RoleController@delete')->name('role/delete');
