@@ -14,16 +14,15 @@ class PermissionController extends Controller
         return view('permissions.index', ['permissions'=>$permissions]);
     }
 
-    public function add(){
+    public function create(){
         return view('permissions.add');
     }
 
-    public function create(Request $request) {
+    public function store(Request $request) {
         if ($request) {
             Permission::create([
-                'name' => $request['name'],
-                'short_code' => $request['short_code'],
-                'is_active' => $request['status'],
+                'name' => strtoupper($request['name']),
+                'short_code' => strtolower(str_replace(" ", "_", $request['name'])),
             ]);
             {
                 return back()->with(['success'=>'Permission has been created Successfully'])->withInput();
@@ -44,18 +43,17 @@ class PermissionController extends Controller
         ]);
         $permission = Permission::find($id);
         $permission->name = $request->get('name');
-        $permission->short_code = $request->get('short_code');
-        $permission->is_active = $request->get('status');
+        $permission->short_code = strtolower(str_replace(" ", "_", $request['name']));
         $permission->save();
 
-        return Redirect::route('permission/manage')->with(['success'=>'Permission has been updated successfully.']);
+        return Redirect::route('admin/manage_permissions')->with(['success'=>'Permission has been updated successfully.']);
     }
 
     public function delete(Request $request) {
         if ($request->get('id')) {
             $id = $request->get('id');
             if (Permission::where('id',$id)->delete()){
-                return Redirect::to('permission/manage')->with(['success'=>'Permission has been  deleted successfully.']);
+                return Redirect::to('admin/manage_permissions')->with(['success'=>'Permission has been  deleted successfully.']);
             }
 
         }

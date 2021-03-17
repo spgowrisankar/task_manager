@@ -1,5 +1,7 @@
 @extends('template.main')
 
+<link rel="stylesheet" href="{{ asset('assets/css/roles.css') }}">
+
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
@@ -18,25 +20,58 @@
                                 </div>
                             </div>
                             <div class="form-inline mb-4">
-                                {!! Form::label('Short Code') !!}
                                 <div class="col-lg-4">
-                                    {!! Form::text('short_code', ($role)? $role->short_code:'', ['class'=>'form-control', 'required'=>'required']) !!}
+                                    {!! Form::hidden('short_code', ($role)? $role->short_code:'', ['class'=>'form-control', 'required'=>'required']) !!}
                                 </div>
                             </div>
-                            <div class="form-inline mb-4">
-                                {!! Form::label('Status') !!}
-                                <div class="col-lg-4">
-                                    {!! Form::select("status",['active' => 'Active', 'in_active' => 'In-active'],($role)?$role->is_active:'',
-                                   ['class'=>'form-control','placeholder' => 'Select a Status...']
-                                    ); !!}
-                                </div>
+                            <div class="col-xl12 mb-5">
+                                <h5>Permissions:</h5>
+                                <hr>
+                                @foreach($permissionitems as $permissionitem)
+                                @foreach($permissions as $permission)
+                                         @if ($permissionitem->permission_id === $permission->id )
+                                            <div id="permission-{{$permission->id}}" class="permission-{{$permission->id}}">
+                                                <div class="form-group">
+                                                    <div class="col-md-12">
+
+                                                        <div class="permission">
+                                                            {!! Form::checkbox("permissions",'',$permission->id == $permissionitem->permission_id?true:false , ['class'=>'permission','name'=>'permissions[]','id'=>'permission']) !!}
+                                                        <div class="parent"> {{ucfirst($permission->name)}}  </div>
+                                                    </div>
+
+                                                    <div>
+                                                        <ul class="permission-item">
+                                                            <li class="permission-items">
+                                                                {!! Form::checkbox("permissions[$permission->id][create]",'1',false,['class'=>'permission-item']) !!}
+                                                                <div class="parent"> {{'Create'}} </div>
+                                                            </li>
+                                                            <li class="permission-items">
+                                                                {!! Form::checkbox("permissions[$permission->id][edit]",'1',false,['class'=>'permission-item']) !!}
+                                                                <div class="parent"> {{'Edit'}} </div>
+                                                            </li>
+                                                            <li class="permission-items">
+                                                                {!! Form::checkbox("permissions[$permission->id][show]",'1',false,['class'=>'permission-item']) !!}
+                                                                <div class="parent"> {{'Show'}} </div>
+                                                            </li>
+                                                            <li class="permission-items">
+                                                                {!! Form::checkbox("permissions[$permission->id][delete]",'1',false,['class'=>'permission-item']) !!}
+                                                                <div class="parent"> {{'Delete'}} </div>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                       @endif
+                                    @endforeach
+                                @endforeach
                             </div>
                             <div class="form-inline">
                                 <div class="col-lg-4">
                                     {!! Form::submit('Submit',['class' => 'btn btn-success']); !!}
                                 </div>
                                 <div class="btn btn-md btn-success">
-                                    <a href="manage" style="color: #ffffff">Goto Manage Role</a>
+                                    <a href="{{ url('admin/manage_roles') }}" style="color: #ffffff">Goto Manage Role</a>
                                 </div>
                             </div>
                         {!! Form::close() !!}
@@ -45,4 +80,5 @@
             </div>
         </div>
     </div>
+<script src="/assets/js/roles/custom.js"></script>
 @endsection

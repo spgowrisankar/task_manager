@@ -28,38 +28,38 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/projects/index', function () {
     return view('projects.index');
 });
-Route::get('/projects/manage', function () {
+Route::get('/manage_projects', function () {
     return view('projects.manage');
 });
 
-
+Route::any('/projects/index','RoleController@getPermissionItems')->name('projects/manage');
 Route::group(['prefix'=>'admin','middleware'=>['auth','is_admin']], function (){
 //    For Admin Dashboard
     Route::any('/dashboard','UserController@index')->name('admin/dashboard');
 
     //Admin User CRUD
-    Route::any('/user/manage','UserController@index')->name('user/manage');
-    Route::any('/user/add','UserController@add')->name('user/add');
-    Route::any('/user/create','UserController@create')->name('user/create');
-    Route::any('/user/edit','UserController@edit')->name('user/edit');
+    Route::any('/manage_users','UserController@index')->name('manage_users');
+    Route::any('/create_user','UserController@create')->name('create_user');
+    Route::any('/user/store','UserController@store')->name('user/store');
+    Route::any('/edit_user','UserController@edit')->name('edit_user');
     Route::any('/user/{uuid}/update','UserController@update')->name('user/update');
-    Route::any('/user/delete','UserController@delete')->name('user/delete');
+    Route::any('/delete_user','UserController@delete')->name('delete_user');
 
     //For Roles
-    Route::any('/role/manage','RoleController@index')->name('role/manage');
-    Route::any('/role/create','RoleController@create')->name('role/create');
+    Route::any('/manage_roles','RoleController@index')->name('manage_roles');
+    Route::any('/create_role','RoleController@create')->name('create_role');
     Route::any('/role/store','RoleController@store')->name('role/store');
-    Route::any('/role/edit','RoleController@edit')->name('role/edit');
+    Route::any('/edit_role','RoleController@edit')->name('edit_role');
     Route::any('/role/{id}/update','RoleController@update')->name('role/update');
-    Route::any('/role/delete','RoleController@delete')->name('role/delete');
+    Route::any('/delete_role','RoleController@delete')->name('delete_role');
 
     //    For Permissions
-    Route::any('/permission/manage','PermissionController@index')->name('permission/manage');
-    Route::any('/permission/add','PermissionController@add')->name('permission/add');
-    Route::any('/permission/create','PermissionController@create')->name('permission/create');
-    Route::any('/permission/edit','PermissionController@edit')->name('permission/edit');
+    Route::any('/manage_permissions','PermissionController@index')->name('manage_permission');
+    Route::any('/create_permission','PermissionController@create')->name('create_permission');
+    Route::any('/permission/store','PermissionController@store')->name('permission/store');
+    Route::any('/edit_permission','PermissionController@edit')->name('edit_permission');
     Route::any('/permission/{id}/update','PermissionController@update')->name('permission/update');
-    Route::any('/permission/delete','PermissionController@delete')->name('permission/delete');
+    Route::any('/delete_permission','PermissionController@delete')->name('delete_permission');
 
 });
 

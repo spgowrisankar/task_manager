@@ -8,7 +8,7 @@
                         {{ __('Manage Users') }}
                     </h2>
                     <div class="card-body float-right">
-                        <a href="add" class="btn btn-primary">Add Users</a>
+                        <a href="{{url('admin/create_user')}}" class="btn btn-primary">Add Users</a>
                     </div>
                     <table class="table table-bordered">
                         <tr>
@@ -25,8 +25,8 @@
                                 <td>{{ $user['email'] }}</td>
                                 <td>{{ $user['role_name'] }}</td>
                                 <td>
-                                    <a class="btn btn-sm btn-primary" href="{{route('user/edit', ['uuid'=>$user['uuid']])}}">Edit</a>
-                                    <a class="btn btn-sm btn-danger" href="{{route('user/delete', ['uuid'=>$user['uuid']])}}">Delete</a>
+                                    <a class="btn btn-sm btn-primary" href="{{route('edit_user', ['uuid'=>$user['uuid']])}}">Edit</a>
+                                    <a class="btn btn-sm btn-danger" href="{{route('delete_user', ['uuid'=>$user['uuid']])}}">Delete</a>
                                 </td>
                             </tr>
                         @endforeach

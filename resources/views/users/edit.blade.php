@@ -28,7 +28,7 @@
                                 {!! Form::submit('Submit',['class' => 'btn btn-success']); !!}
                             </div>
                             <div class="btn btn-md btn-success">
-                                <a href="manage" style="color: #ffffff">Goto Manage Users</a>
+                                <a href="{{'manage_users'}}" style="color: #ffffff">Goto Manage Users</a>
                             </div>
                         </div>
                         {!! Form::close() !!}

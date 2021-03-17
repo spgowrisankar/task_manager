@@ -1,0 +1,17 @@
+.permission-item {
+    list-style-type: none;
+}
+
+.permission-items {
+    display: inline;
+    padding: 5px;
+}
+.permission {
+    display: flex;
+    font-size: 15px;
+    font-weight:bold;
+}
+.parent {
+    display: inline;
+    padding-left: 2px;
+}

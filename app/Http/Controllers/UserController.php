@@ -16,11 +16,11 @@ class UserController extends Controller
        $users = $this->listUser();
        return view('users.index',['users'=>$users]);
     }
-    public function add(){
+    public function create(){
         $roles = $this->listRole();
         return view('users.add',['roles'=>$roles]);
     }
-    public function create(Request $request) {
+    public function store(Request $request) {
         if ($request) {
             User::create([
                 'name' => $request['name'],
@@ -52,14 +52,14 @@ class UserController extends Controller
         $users->roles = $request->get('roles');
         $users->save();
 
-        return redirect('admin/user/manage')->with('success','User has been Updated successfully!');
+        return redirect('admin/manage_users')->with('success','User has been Updated successfully!');
     }
 
     public function delete(Request $request) {
         if ($request->get('uuid')) {
             $uuid = $request->get('uuid');
             if (User::where('uuid',$uuid)->delete()){
-                return Redirect::to('admin/user/manage')->with(['success'=>'User deleted Successfully']);
+                return Redirect::to('admin/manage_users')->with(['success'=>'User deleted Successfully']);
             }
 
         }

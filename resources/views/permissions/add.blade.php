@@ -8,7 +8,7 @@
                     <div class="card-header"><h4>Add Permission</h4></div>
                     <div class="card-body">
                         @include('components.alert')
-                        {!! Form::open(['route' => 'permission/create','method' => 'post']) !!}
+                        {!! Form::open(['route' => 'permission/store','method' => 'post']) !!}
                         @csrf()
                         <div class="form-inline mb-4">
                             {!! Form::label('Permission') !!}
@@ -26,7 +26,7 @@
                                 {!! Form::submit('Submit',['class' => 'btn btn-success']); !!}
                             </div>
                             <div class="btn btn-md btn-success">
-                                <a href="manage" style="color: #ffffff">Goto Manage Permission</a>
+                                <a href="{{ url('admin/manage_permissions') }}" style="color: #ffffff">Goto Manage Permission</a>
                             </div>
                         </div>
                         {!! Form::close() !!}

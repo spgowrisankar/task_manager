@@ -13,28 +13,28 @@
                 <li class="nav-item pcoded-hasmenu">
                     <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-users"></i></span><span class="pcoded-mtext">User Management</span></a>
                     <ul class="pcoded-submenu">
-                        <li><a href="/admin/user/manage">Manage User</a></li>
-                        <li><a href="/admin/user/add">Add User</a></li>
+                        <li><a href="/admin/manage_users">Manage User</a></li>
+                        <li><a href="/admin/create_user">Add User</a></li>
                     </ul>
                 </li>
                 <li class="nav-item pcoded-hasmenu">
                     <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-users"></i></span><span class="pcoded-mtext">Role Management</span></a>
                     <ul class="pcoded-submenu">
-                        <li><a href="/admin/role/manage">Manage Role</a></li>
-                        <li><a href="/admin/role/create">Add Role</a></li>
+                        <li><a href="/admin/manage_roles">Manage Role</a></li>
+                        <li><a href="/admin/create_role">Add Role</a></li>
                     </ul>
                 </li>
                 <li class="nav-item pcoded-hasmenu">
                     <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-users"></i></span><span class="pcoded-mtext">Permissions</span></a>
                     <ul class="pcoded-submenu">
-                        <li><a href="/admin/permission/manage">Manage Permission</a></li>
-                        <li><a href="/admin/permission/add">Add Permission</a></li>
+                        <li><a href="/admin/manage_permissions">Manage Permission</a></li>
+                        <li><a href="/admin/create_permission">Add Permission</a></li>
                     </ul>
                 </li>
                 <li class="nav-item pcoded-hasmenu">
                     <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-users"></i></span><span class="pcoded-mtext">Projects</span></a>
                     <ul class="pcoded-submenu">
-                        <li><a href="/projects/manage">Manage Project</a></li>
+                        <li><a href="/manage_projects">Manage Project</a></li>
 {{--                        <li><a href="/admin/permission/add">Add Project</a></li>--}}
                     </ul>
                 </li>

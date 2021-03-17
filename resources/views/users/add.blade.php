@@ -10,7 +10,7 @@
                     </div>
                     <div class="card-body">
                         @include('components.alert')
-                        {!! Form::open(['route'=>'user/create','method' => 'post']) !!}
+                        {!! Form::open(['route'=>'user/store','method' => 'post']) !!}
                         @csrf()
                         <div class="form-inline mb-4">
                             {!! Form::label('Name') !!}
@@ -41,7 +41,7 @@
                                 {!! Form::submit('Submit',['class' => 'btn btn-success']); !!}
                             </div>
                             <div class="btn btn-md btn-success">
-                                <a href="manage" style="color: #ffffff">Goto Manage Users</a>
+                                <a href="{{url('admin/manage_users')}}" style="color: #ffffff">Goto Manage Users</a>
                             </div>
                         </div>
                         {!! Form::close() !!}

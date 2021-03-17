@@ -8,7 +8,7 @@
                     {{ __('Manage Permissions') }}
                 </h2>
                 <div class="card-body float-right">
-                    <a href="add" class="btn btn-primary">Add Permission</a>
+                    <a href="{{url('admin/create_permission')}}" class="btn btn-primary">Add Permission</a>
                    </div>
                 <table class="table table-bordered">
                     <tr>
@@ -21,8 +21,8 @@
                             <td>{{ $permission['id'] }}</td>
                             <td>{{ $permission['name'] }}</td>
                             <td>
-                                <a class="btn btn-sm btn-primary" href="{{route('permission/edit', ['id'=>$permission->id])}}">Edit</a>
-                                <a class="btn btn-sm btn-danger" href="{{route('permission/delete', ['id'=>$permission->id])}}">Delete</a>
+                                <a class="btn btn-sm btn-primary" href="{{route('edit_permission', ['id'=>$permission->id])}}">Edit</a>
+                                <a class="btn btn-sm btn-danger" href="{{route('delete_permission', ['id'=>$permission->id])}}">Delete</a>
                             </td>
                         </tr>
                     @endforeach
