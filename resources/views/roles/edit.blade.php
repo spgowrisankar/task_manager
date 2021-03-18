@@ -27,44 +27,38 @@
                             <div class="col-xl12 mb-5">
                                 <h5>Permissions:</h5>
                                 <hr>
-                                @foreach($permissionitems as $permissionitem)
-                                    @foreach($permissions as $permission)
-                                <!-- @if ($permissionitem->permission_id === $permission->id ) -->
-                                            <div id="permission-{{$permission->id}}" class="permission-{{$permission->id}}">
-                                                <div class="form-group">
-                                                    <div class="col-md-12">
+                                @foreach($permissions as $permission)
+                                <div id="permission-{{$permission->id}}" class="permission-{{$permission->id}}">
+                                    <div class="form-group">
+                                        <div class="col-md-12">
 
-                                                        <div class="permission">
-                                                            {!! Form::checkbox("permissions",'',$permission->id == $permissionitem->permission_id?true:false , ['class'=>'permission','name'=>'permissions[]','id'=>'permission']) !!}
-                                                        <div class="parent"> {{ucfirst($permission->name)}}  </div>
-                                                    </div>
-
-                                                    <div>
-                                                        <ul class="permission-item">
-                                                            <li class="permission-items">
-                                                                {!! Form::checkbox("permissions[$permission->id][create]",'1',false,['class'=>'permission-item']) !!}
-                                                                <div class="parent"> {{'Create'}} </div>
-                                                            </li>
-                                                            <li class="permission-items">
-                                                                {!! Form::checkbox("permissions[$permission->id][edit]",'1',false,['class'=>'permission-item']) !!}
-                                                                <div class="parent"> {{'Edit'}} </div>
-                                                            </li>
-                                                            <li class="permission-items">
-                                                                {!! Form::checkbox("permissions[$permission->id][show]",'1',false,['class'=>'permission-item']) !!}
-                                                                <div class="parent"> {{'Show'}} </div>
-                                                            </li>
-                                                            <li class="permission-items">
-                                                                {!! Form::checkbox("permissions[$permission->id][delete]",'1',false,['class'=>'permission-item']) !!}
-                                                                <div class="parent"> {{'Delete'}} </div>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <div class="permission">
+                                                {!! Form::checkbox("permissions",'',false, ['class'=>'permission','name'=>'permissions[]','id'=>'permission']) !!}
+                                            <div class="parent"> {{ucfirst($permission->name)}}  </div>
                                         </div>
-                                        <!-- @endif -->
-                                        @endforeach
-                                    <!-- @endforeach -->
+                                        <div>
+                                            <ul class="permission-item">
+                                                <li class="permission-items">
+                                                    {!! Form::checkbox("permissions[$permission->id][create]",'1',false,['class'=>'permission-item']) !!}
+                                                    <div class="parent"> {{'Create'}} </div>
+                                                </li>
+                                                <li class="permission-items">
+                                                    {!! Form::checkbox("permissions[$permission->id][edit]",'1',false,['class'=>'permission-item']) !!}
+                                                    <div class="parent"> {{'Edit'}} </div>
+                                                </li>
+                                                <li class="permission-items">
+                                                    {!! Form::checkbox("permissions[$permission->id][show]",'1',false,['class'=>'permission-item']) !!}
+                                                    <div class="parent"> {{'Show'}} </div>
+                                                </li>
+                                                <li class="permission-items">
+                                                    {!! Form::checkbox("permissions[$permission->id][delete]",'1',false,['class'=>'permission-item']) !!}
+                                                    <div class="parent"> {{'Delete'}} </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                @endforeach
                             </div>
                             <div class="form-inline">
                                 <div class="col-lg-4">

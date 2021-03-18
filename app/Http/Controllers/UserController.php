@@ -41,6 +41,7 @@ class UserController extends Controller
 
         return view('users.edit',compact($param));
     }
+
     public function update(Request $request, $uuid) {
         $request->validate([
             'name' =>'required',
@@ -61,9 +62,6 @@ class UserController extends Controller
             if (User::where('uuid',$uuid)->delete()){
                 return Redirect::to('admin/manage_users')->with(['success'=>'User deleted Successfully']);
             }
-
         }
     }
-
-
 }
