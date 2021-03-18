@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 use phpDocumentor\Reflection\DocBlock\Tags\Reference\Fqsen;
+use Illuminate\Support\Facades\Auth;
+
 
 class RoleController extends Controller
 {
@@ -86,5 +88,9 @@ class RoleController extends Controller
                 return Redirect::to('admin/manage_roles')->with(['success'=>'Role has been deleted successfully']);
             }
         }
+    }
+    public function list(){
+        $data = Auth::user()->pluck('roles');
+        return $data;
     }
 }

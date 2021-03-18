@@ -13,8 +13,5 @@ trait CommonTrait {
         return $permission;
     }
 
-    // public function getpermissionItems(){
-    //     $data = Permission::get();
-    //     return $data;
-    // }
+    
 }

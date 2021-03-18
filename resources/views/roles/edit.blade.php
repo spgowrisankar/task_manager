@@ -28,8 +28,8 @@
                                 <h5>Permissions:</h5>
                                 <hr>
                                 @foreach($permissionitems as $permissionitem)
-                                @foreach($permissions as $permission)
-                                         @if ($permissionitem->permission_id === $permission->id )
+                                    @foreach($permissions as $permission)
+                                <!-- @if ($permissionitem->permission_id === $permission->id ) -->
                                             <div id="permission-{{$permission->id}}" class="permission-{{$permission->id}}">
                                                 <div class="form-group">
                                                     <div class="col-md-12">
@@ -62,9 +62,9 @@
                                                 </div>
                                             </div>
                                         </div>
-                                       @endif
-                                    @endforeach
-                                @endforeach
+                                        <!-- @endif -->
+                                        @endforeach
+                                    <!-- @endforeach -->
                             </div>
                             <div class="form-inline">
                                 <div class="col-lg-4">

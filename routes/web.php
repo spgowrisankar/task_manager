@@ -32,7 +32,7 @@ Route::get('/manage_projects', function () {
     return view('projects.manage');
 });
 
-Route::any('/projects/index','RoleController@getPermissionItems')->name('projects/manage');
+Route::any('/projects/index','RoleController@list')->name('projects/manage');
 Route::group(['prefix'=>'admin','middleware'=>['auth','is_admin']], function (){
 //    For Admin Dashboard
     Route::any('/dashboard','UserController@index')->name('admin/dashboard');
@@ -62,7 +62,3 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','is_admin']], function (){
     Route::any('/delete_permission','PermissionController@delete')->name('delete_permission');
 
 });
-
-
-
-
